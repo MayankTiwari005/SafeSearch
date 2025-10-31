@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Web Safety Report</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <h1>Web Safety Analysis</h1>
+
+  {% if error %}
+    <p style="color:red;">{{ error }}</p>
+  {% else %}
+    <h2>Safety Analysis for {{ url }}</h2>
+    <p><strong>Safety Score:</strong> {{ result.safety_score }}%</p>
+
+    <h3>Category Analysis</h3>
+    <img src="{{ url_for('static', filename=bar_img) }}" alt="Category Chart">
+
+    <h3>Safe vs Unsafe Words</h3>
+    <img src="{{ url_for('static', filename=pie_img) }}" alt="Pie Chart">
+
+    <h3>Details</h3>
+    <ul>
+      <li>Total Words: {{ result.total_words }}</li>
+      <li>Unsafe Hits: {{ result.unsafe_hits }}</li>
+    </ul>
+  {% endif %}
+
+  <a href="{{ url_for('index') }}">← Back</a>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Web Content Safety Analyzer</title>
+    <link rel="stylesheet" href="/static/style.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Web Content Safety Analyzer</h1>
+      <form action="/analyze" method="post">
+        <input
+          type="text"
+          name="url"
+          placeholder="Enter a webpage URL (e.g. https://example.com/article)"
+          required
+        >
+        <button type="submit">Analyze</button>
+      </form>
+      <p class="note">
+        This tool uses keyword-based detection. It is a simple offline classifier —
+        it may produce false positives. For production use, add ML models and
+        more curated lexicons.
+      </p>
+    </div>
+  </body>
+</html>
